@@ -2,7 +2,9 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+
+const port = process.env.PORT || 3000;
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -36,17 +38,14 @@ app.post('/token', async (req, res) => {
 });
 
 app.get('/user/:username', async (req, res) => {
-  console.log(req.headers.authorization, req.params.username)
-  const response = await fetch(
-    `${TWITTER_API_URL}/users/me`,
-    {
-      method: 'get',
-      headers: {
-        Accept: 'application/json',
-        Authorization: req.headers.authorization,
-      },
-    }
-  ).then((response) => {
+  console.log(req.headers.authorization, req.params.username);
+  const response = await fetch(`${TWITTER_API_URL}/users/me`, {
+    method: 'get',
+    headers: {
+      Accept: 'application/json',
+      Authorization: req.headers.authorization,
+    },
+  }).then((response) => {
     return response.json();
   });
   console.log(response);

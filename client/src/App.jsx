@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 const TWITTER_OAUTH_AUTH_URL = 'https://twitter.com/i/oauth2/authorize';
-const TWITTER_OAUTH_TOKEN_URL = 'http://localhost:3000/token';
-const TWITTER_API_URL = 'http://localhost:3000';
+const TWITTER_OAUTH_TOKEN_URL = 'https://vmeet-live.onrender.com/token';
+const TWITTER_API_URL = 'https://vmeet-live.onrender.com';
 
 function uuidv4() {
   return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
