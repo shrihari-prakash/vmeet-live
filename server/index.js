@@ -55,3 +55,7 @@ app.get('/user/:username', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+process.on('uncaughtException', function (err) {
+  console.log('Caught exception: ', err);
+});
